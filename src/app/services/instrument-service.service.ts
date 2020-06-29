@@ -3,7 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { InstrumentInterface } from '../models/instrument';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
