@@ -1,0 +1,58 @@
+<div class="h-100 bg-plum-plate bg-animation">
+    <div class="d-flex h-100 justify-content-center align-items-center">
+        <div class="mx-auto app-login-box col-md-8">
+            <div class="app-logo-inverse mx-auto mb-3"></div>
+            <div class="modal-dialog w-100 mx-auto">
+                <div class="modal-content">
+                    <form [formGroup]="loginForm" (submit)="onLogin()">
+                        <div class="modal-body">
+                            <div class="h5 modal-title text-center">
+                                <h4 class="mt-2">
+                                    <div>Bienvenido</div>
+                                    <span> Inicie sesión en su cuenta a continuación.</span></h4>
+                            </div>
+                            <div id="exampleInputGroup1" role="group" aria-describedby="exampleInputGroup1__BV_description_" class="form-group">
+                                <div>
+                                    <input id="email" formControlName="email" type="email" placeholder="Ingresar Correro..." required="required" aria-required="true" class="form-control" aria-describedby="exampleInputGroup1__BV_description_">
+                                    <small tabindex="-1" id="exampleInputGroup1__BV_description_" class="form-text text-muted">
+                                      We'll never share your email with anyone else.
+                                    </small>
+                                </div>
+                            </div>
+                            <div id="exampleInputGroup2" role="group" class="form-group">
+                                <div>
+                                    <input id="password" formControlName="password" type="password" placeholder="Ingresar contraseña..." required="required" aria-required="true" class="form-control">
+                                </div>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="exampleCheck" type="checkbox" name="check" autocomplete="off" class="custom-control-input" value="true">
+                                <label for="exampleCheck" class="custom-control-label"> Recordar cuenta </label>
+                            </div>
+                            <div class="divider"></div>
+                            <h6 class="mb-0">
+                                Sin cuenta?
+                                <a routerLink="/register" class="text-primary">Registrarme</a>
+                            </h6>
+                        </div>
+                        <div class="modal-footer clearfix">
+                            <div class="float-left">
+                                <a [routerLink]="" class="btn-lg btn btn-link">Recuperar Contraseña</a>
+                            </div>
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-primary btn-lg">Iniciar</button>
+                            </div>
+                            <div class="float-right">
+                                <button type="button" class="btn btn-danger btn-lg" (click)="onLoginGoogle()">
+                                <i class="fa fa-google"></i>
+                          </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center text-white opacity-8 mt-3">
+                Copyright © ArchitectUI 2019
+            </div>
+        </div>
+    </div>
+</div>

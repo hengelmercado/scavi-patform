@@ -1,0 +1,44 @@
+<div class="col-lg-12">
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+            <h5 class="card-title">Table striped</h5>
+            <table class="mb-0 table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Nombre</th>
+                        <th class="text-center">Codigo</th>
+                        <th class="text-center">Descripción</th>
+                        <th class="text-center">Habilitado</th>
+                        <th class="text-center">&nbsp;</th>
+                        <th class="text-center">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let instrument of instruments; let i=index">
+                        <td class="text-center text-muted">{{i+1}} </td>
+                        <td>{{instrument?.name}}</td>
+                        <td class="text-center">{{instrument?.code}}</td>
+                        <td class="text-center">{{instrument?.description}}</td>
+                        <td class="text-center">
+                            <div class="badge badge-success" *ngIf="instrument?.enabled === true">{{instrument?.enabled}}</div>
+                            <div class="badge badge-danger" *ngIf="instrument?.enabled === false">{{instrument?.enabled}}</div>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-success btn-sm" (click)="onPreUpdateInstrument(instrument)">
+                                <i class="fa fa-pencil-square-o"></i>
+                                Actualizar
+                            </button>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteInstrument(instrument.id)">
+                                <!-- <i class="fa fa-trash-o icon-gradient bg-premium-dark"></i> -->
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
