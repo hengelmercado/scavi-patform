@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-page-title',
@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class PageTitleComponent implements OnInit {
+
+  @Input() title: String;
+  @Input() subtitle: String;
+  @Input() icon: String;
+  @Input() bText: String;
+  @Input() bIcon: String;
+  @Input() route: String;
 
   constructor() { }
 

@@ -8,31 +8,35 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th>Nombre</th>
-                        <th class="text-center">Codigo</th>
-                        <th class="text-center">Descripción</th>
+                        <th class="text-center">Nit</th>
+                        <th class="text-center">Contacto</th>
+                        <th class="text-center">Telefono</th>
+                        <th class="text-center">Dirección</th>
                         <th class="text-center">Habilitado</th>
                         <th class="text-center">&nbsp;</th>
                         <th class="text-center">&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let instrument of instruments; let i=index">
+                    <tr *ngFor="let entity of entities; let i=index">
                         <td class="text-center text-muted">{{i+1}} </td>
-                        <td>{{instrument?.name}}</td>
-                        <td class="text-center">{{instrument?.code}}</td>
-                        <td class="text-center">{{instrument?.description}}</td>
+                        <td>{{entity?.name}}</td>
+                        <td class="text-center">{{entity?.nit}}</td>
+                        <td class="text-center">{{entity?.contact}}</td>
+                        <td class="text-center">{{entity?.phone}}</td>
+                        <td class="text-center">{{entity?.address}}</td>
                         <td class="text-center">
-                            <div class="badge badge-success" *ngIf="instrument?.enabled === true">{{instrument?.enabled}}</div>
-                            <div class="badge badge-danger" *ngIf="instrument?.enabled === false">{{instrument?.enabled}}</div>
+                            <div class="badge badge-success" *ngIf="entity?.enabled === true">Si</div>
+                            <div class="badge badge-danger" *ngIf="entity?.enabled === false">No</div>
                         </td>
                         <td class="text-center">
-                            <button type="button" class="btn btn-success btn-sm" (click)="onPreUpdateInstrument(instrument)">
+                            <button type="button" class="btn btn-success btn-sm" (click)="onPreUpdate(entity)">
                                 <i class="fa fa-pencil-square-o"></i>
                                 Actualizar
                             </button>
                         </td>
                         <td class="text-center">
-                            <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteInstrument(instrument.id)">
+                            <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(entity.id)">
                                 <!-- <i class="fa fa-trash-o icon-gradient bg-premium-dark"></i> -->
                                 Eliminar
                             </button>

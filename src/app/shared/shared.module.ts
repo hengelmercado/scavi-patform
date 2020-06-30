@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SettingComponent } from './setting/setting.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -24,6 +25,10 @@ import { FooterComponent } from './footer/footer.component';
     SettingComponent,
     PageTitleComponent,
     FooterComponent
+  ],
+  imports: [
+    RouterModule,
+    CommonModule
   ]
 })
 export class SharedModule { }

@@ -12,6 +12,13 @@ import Swal from 'sweetalert2';
 })
 export class InstrumentComponent implements OnInit {
 
+  title: string = 'Instrumentos';
+  subtitle: string = 'Listado de Instrumentos';
+  icon: string = 'pe-7s-menu';
+  bText: string = 'Nuevo';
+  bIcon: string = 'fa-plus';
+  lRoute: string = '/instrument/create';
+
   constructor(private instrumentServiceService: InstrumentServiceService, private router: Router) { }
   public instruments: InstrumentInterface[];
   public thead = ['#', 'Nombre', 'Codigo', 'Descripción', 'Habilitado', '', ''];

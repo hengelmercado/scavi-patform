@@ -1,0 +1,66 @@
+<app-page-title [icon]="icon" [title]="title" [subtitle]="subtitle" [bText]="bText" [bIcon]="bIcon" [route]="lRoute"></app-page-title>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Controls Types</h5>
+                <form [formGroup]="entityForm" (ngSubmit)="onAdd()" class="needs-validation" novalidate>
+                    <input *ngIf="idb" type="hidden" name="id" formControlName="id">
+                    <div class="position-relative form-group">
+                        <label for="name">Nombre <span style="color: crimson;">*</span></label>
+                        <input name="name" id="name" formControlName="name" placeholder="Ingrese el nombre" type="text" class="form-control" [class.is-invalid]="entityForm.valid === false">
+                        <!-- <div class="invalid-feedback">
+                            Dato invalido
+                        </div> -->
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="nit">Nit <span style="color: crimson;">*</span></label>
+                        <input name="nit" id="nit" formControlName="nit" placeholder="Ingrese el Nit" type="text" class="form-control" [class.is-invalid]="entityForm.valid === false">
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="contact">Contacto <span style="color: crimson;">*</span></label>
+                        <input name="contact" id="contact" formControlName="contact" placeholder="Ingrese el Contacto" type="text" class="form-control" [class.is-invalid]="entityForm.valid === false">
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="phone">Telefono <span style="color: crimson;">*</span></label>
+                        <input name="phone" id="phone" formControlName="phone" placeholder="Ingrese el Telefono" type="number" class="form-control" [class.is-invalid]="entityForm.valid === false">
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="address">Dirección <span style="color: crimson;">*</span></label>
+                        <input name="address" id="address" formControlName="address" placeholder="Ingrese el Dirección" type="text" class="form-control" [class.is-invalid]="entityForm.valid === false">
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="county">Pais <span style="color: crimson;">*</span></label>
+                        <input name="county" id="country" formControlName="country" placeholder="Ingrese el Pais" type="text" class="form-control" [class.is-invalid]="entityForm.valid === false">
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="city">Ciudad <span style="color: crimson;">*</span></label>
+                        <input name="city" id="city" formControlName="city" placeholder="Ingrese el Ciudad" type="text" class="form-control" [class.is-invalid]="entityForm.valid === false">
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="description">Descripción</label>
+                        <textarea name="description" id="description" formControlName="description" class="form-control"></textarea>
+                    </div>
+                    <fieldset class="position-relative form-group">
+                        <div class="col-sm-10">
+                            <div class="position-relative form-check">
+                                <label class="form-check-label">
+                                    <input id="checkbox2" type="checkbox" formControlName="enabled" [class.is-invalid]="entityForm.valid === false" class="form-check-input">
+                                     Habilitado <span style="color: crimson;">*</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="position-relative form-group">
+                        <button type="submit" class="btn btn-success" [disabled]="!entityForm.valid">
+                            <i class="fa fa-save"></i> Guardar
+                        </button>
+                        <!-- <button type="submit" class="btn btn-success"> 
+                          <i class="fa fa-save"></i> Guardar
+                        </button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

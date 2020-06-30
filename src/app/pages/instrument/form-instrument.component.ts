@@ -12,6 +12,15 @@ import Swal from 'sweetalert2';
   ]
 })
 export class FormInstrumentComponent implements OnInit {
+  idInstrument: string;
+  dInstrument: boolean = false;
+
+  title: string = 'Instrumentos';
+  subtitle: string = '';
+  icon: string = 'pe-7s-menu';
+  bText: string = 'Lista';
+  bIcon: string = 'fa-list';
+  lRoute: string = '/instrument';
 
   instrumentForm = new FormGroup({
     id: new FormControl(''),
@@ -23,8 +32,6 @@ export class FormInstrumentComponent implements OnInit {
 
   constructor(private instService: InstrumentServiceService, private router: Router, private route: ActivatedRoute) { }
   instrument: InstrumentInterface;
-  idInstrument: string;
-  dInstrument: boolean = false;
 
   onAddInstrument() {
     const instrument: InstrumentInterface = this.instrumentForm.value;
@@ -112,6 +119,12 @@ export class FormInstrumentComponent implements OnInit {
     }
     if (this.instService.selectedInstrument.id === undefined) {
       this.onGetOneInstrument(this.idInstrument);
+    }
+
+    if(this.dInstrument === false) {
+      this.subtitle = 'Nuevo instrumento';
+    }else {
+      this.subtitle = 'Editar instrumento';
     }
   }
 

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { PAGES_ROUTES } from './pages.routes';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { PAGES_ROUTES } from './pages.routes';
 import { SharedModule } from '../shared/shared.module';
 
 import { PagesComponent } from './pages.component';
@@ -14,6 +14,8 @@ import { InstrumentComponent } from './instrument/instrument.component';
 import { ModalsComponent } from '../components/modals/modals.component';
 import { TableComponent } from '../components/table/table.component';
 import { FormInstrumentComponent } from './instrument/form-instrument.component';
+import { EntitiesComponent } from './entities/entities.component';
+import { FormEntitiesComponent } from './entities/form-entities.component';
 
 
 
@@ -25,7 +27,9 @@ import { FormInstrumentComponent } from './instrument/form-instrument.component'
     InstrumentComponent,
     ModalsComponent,
     TableComponent,
-    FormInstrumentComponent
+    FormInstrumentComponent,
+    EntitiesComponent,
+    FormEntitiesComponent
   ],
   imports: [
     PAGES_ROUTES,
@@ -39,6 +43,7 @@ import { FormInstrumentComponent } from './instrument/form-instrument.component'
     DashboardComponent,
     NopagefoundComponent,
     InstrumentComponent,
+    EntitiesComponent,
     ModalsComponent,
   ]
 })
