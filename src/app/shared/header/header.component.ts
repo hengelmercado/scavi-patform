@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
         this.user.email = user.email;
         this.user.photoUrl = user.photoURL;
         this.providerId = user.providerData[0].providerId;
-        console.log('USER', user);
       }
     });
   }

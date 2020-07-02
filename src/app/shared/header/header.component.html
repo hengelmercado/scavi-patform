@@ -68,8 +68,8 @@
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                     <!-- <button class="dropdown-item">{{user?.name? user?.name: user?.email }}</button> -->
-                                    <!-- <h6 class="dropdown-header">Header</h6>
-                                        <button class="dropdown-item">Actions</button> -->
+                                    <!-- <h6 class="dropdown-header">Header</h6> -->
+                                    <button class="dropdown-item" routerLink="/user">Perfil</button>
                                     <div class="dropdown-divider"></div>
                                     <button class="dropdown-item" (click)="onLogout()">Logout</button>
                                     <!-- <button type="button" tabindex="0" class="dropdown-item">User Account</button>
@@ -86,7 +86,7 @@
                                 {{user?.name? user?.name: user?.email }}
                             </div>
                             <div class="widget-subheading">
-                                VP People Manager
+                                <!-- VP People Manager -->
                             </div>
                         </div>
                         <!-- <div class="widget-content-right header-user-info ml-3">

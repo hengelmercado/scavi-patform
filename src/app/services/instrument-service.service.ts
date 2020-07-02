@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class InstrumentServiceService {
 
   constructor(private asf: AngularFirestore) {
-    this.instrumentCollection = asf.collection<InstrumentInterface> ('instrument');
+    this.instrumentCollection = asf.collection<InstrumentInterface> ('instrument', ref => ref.orderBy("timestamp", "desc"));
     this.instruments = this.instrumentCollection.valueChanges();
   }
 
@@ -19,6 +19,37 @@ export class InstrumentServiceService {
   private instrumentDoc: AngularFirestoreDocument<InstrumentInterface>;
   private instrument: Observable<InstrumentInterface>;
   public selectedInstrument: InstrumentInterface = {};
+
+  private Add = {
+    name: '',
+    code: '',
+    description: '',
+    timestamp: new Date().getTime(),
+    enabled: false
+  };
+
+  addParameters(instrument: InstrumentInterface) {
+    this.Add.name = instrument.name;
+    this.Add.code = instrument.code;
+    this.Add.description = instrument.description;
+    this.Add.enabled = instrument.enabled;
+  }
+
+  /* all(): Observable<InstrumentInterface[]> {
+    return this.asf.collection(
+      "instrument",
+      ref => ref.orderBy("timestamp", "desc")
+      )
+    .snapshotChanges()
+    .pipe(map(snaps => {
+      return snaps.map(snap => {
+        return {
+          id: snap.payload.doc.id,
+          ...snap.payload.doc.data()
+        } as InstrumentInterface;
+      });
+    }));
+  } */
 
   getAllInstrument() {
     return this.instruments = this.instrumentCollection.snapshotChanges()
@@ -46,8 +77,9 @@ export class InstrumentServiceService {
 
   async addInstrument(instrument: InstrumentInterface) {
     try {
-       await new Promise( (resolve, reject) => {
-        this.instrumentCollection.add(instrument)
+      await this.addParameters(instrument);
+      await new Promise( (resolve, reject) => {
+        this.instrumentCollection.add(this.Add)
         .then(IsntrumentData => resolve(IsntrumentData),
         err => reject(err));
       });

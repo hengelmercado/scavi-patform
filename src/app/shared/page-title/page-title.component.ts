@@ -13,6 +13,7 @@ export class PageTitleComponent implements OnInit {
   @Input() icon: String;
   @Input() bText: String;
   @Input() bIcon: String;
+  @Input() bVisible: boolean = true;
   @Input() route: String;
 
   constructor() { }

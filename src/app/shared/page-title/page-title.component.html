@@ -11,7 +11,7 @@
                 </div>
             </div>
         </div>
-        <div class="page-title-actions">
+        <div class="page-title-actions" [hidden]="!bVisible">
             <button type="button" routerLink="{{route}}" data-placement="bottom" class="btn-shadow mr-3 btn btn-success">
                 <i class="fa {{bIcon}}"></i>
                 {{bText}}

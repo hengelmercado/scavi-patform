@@ -1,0 +1,116 @@
+<app-page-title [icon]="icon" [title]="title" [subtitle]="subtitle" [bText]="bText" [bIcon]="bIcon" [route]="lRoute" [bVisible]="bVisible"></app-page-title>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">
+
+                </h5>
+                <img width="100%" src="{{photoUrl}}" alt="" class="rounded-circle">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <form [formGroup]="userForm" (ngSubmit)="onAdd()" class="needs-validation" novalidate>
+                    <input *ngIf="idb" type="hidden" name="id" formControlName="id">
+                    <div class="form-row">
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="name">Nombre <span style="color: crimson;">*</span></label>
+                            <input name="name" id="name" formControlName="name" placeholder="Ingrese el nombre" type="text" class="form-control" [class.is-invalid]="f.name.errors">
+                        </div>
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="lastName">Apellido <span style="color: crimson;">*</span></label>
+                            <input name="lastName" id="lastName" formControlName="lastName" placeholder="Ingrese el Apellido" type="text" class="form-control" [class.is-invalid]="f.lastName.errors">
+                        </div>
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="email">Email <span style="color: crimson;">*</span></label>
+                            <input name="email" id="email" formControlName="email" readonly placeholder="Ingrese el Email" type="text" class="form-control" [class.is-invalid]="f.email.errors">
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="documentType">Tipo de documento <span style="color: crimson;">*</span></label>
+                            <select name="documentType" id="documentType" formControlName="documentType" class="form-control" [class.is-invalid]="f.documentType.errors">
+                                <option value="" selected>Seleccione</option>
+                                <option value="AS">Adulto sin identidad</option>
+                                <option value="CC">Cédula de ciudadanía</option>
+                                <option value="CE ">Cédula  de extranjería</option>
+                                <option value="MS">Menor sin identificación</option>
+                                <option value="PA">Pasaporte</option>
+                                <option value="RC">Registro Civil</option>
+                                <option value="TI">Tarjeta de identidad</option>
+                            </select>
+                        </div>
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="document">No. Documento <span style="color: crimson;">*</span></label>
+                            <input name="document" id="document" formControlName="document" placeholder="Ingrese el No. Documento" type="number" class="form-control" [class.is-invalid]="f.document.errors">
+                        </div>
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="phone">Telefono <span style="color: crimson;">*</span></label>
+                            <input name="phone" id="phone" formControlName="phone" placeholder="Ingrese el Telefono" type="number" class="form-control" [class.is-invalid]="f.phone.errors">
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="address">Dirección <span style="color: crimson;">*</span></label>
+                            <input name="address" id="address" formControlName="address" placeholder="Ingrese el Dirección" type="text" class="form-control" [class.is-invalid]="f.address.errors">
+                        </div>
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="birthday">Fecha de Nacimiento <span style="color: crimson;">*</span></label>
+                            <input name="birthday" id="birthday" formControlName="birthday" placeholder="Ingrese el Fecha de Nacimiento" type="date" class="form-control" [class.is-invalid]="f.birthday.errors">
+                        </div>
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="weight">Peso <span style="color: crimson;">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">kg</span>
+                                </div>
+                                <input name="weight" id="weight" formControlName="weight" placeholder="Ingrese el Peso" type="text" class="form-control" [class.is-invalid]="f.weight.errors">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="height">Altura <span style="color: crimson;">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">m</span>
+                                </div>
+                                <input name="height" id="height" formControlName="height" placeholder="Ingrese el Altura" type="text" class="form-control" [class.is-invalid]="f.height.errors">
+                            </div>
+                        </div>
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="bloodType">Tipo de sangre</label>
+                            <select name="bloodType" id="bloodType" formControlName="bloodType" class="form-control" [class.is-invalid]="f.bloodType.errors">
+                                <option value="">Seleccione</option>
+                                <option *ngFor="let blood of bloodTyoe" value="{{blood}}">{{blood}}</option>
+                            </select>
+                        </div>
+                        <div class="position-relative form-group col-md-4 mb-3">
+                            <label for="rh">RH</label>
+                            <select name="rh" id="rh" formControlName="rh" class="form-control" [class.is-invalid]="f.rh.errors">
+                                <option value="">Seleccione</option>
+                                <option value="+">+</option>
+                                <option value="-">-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="position-relative form-group">
+                        <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
+                            <i class="fa fa-save"></i> Guardar
+                        </button>
+                        <!-- <button type="submit" class="btn btn-success"> 
+                          <i class="fa fa-save"></i> Guardar
+                        </button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

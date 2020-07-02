@@ -16,7 +16,9 @@ import { TableComponent } from '../components/table/table.component';
 import { FormInstrumentComponent } from './instrument/form-instrument.component';
 import { EntitiesComponent } from './entities/entities.component';
 import { FormEntitiesComponent } from './entities/form-entities.component';
-
+import { UserComponent } from './user/user.component';
+import { LevelComponent } from './level/level.component';
+import { FormLevelComponent } from './level/form-level.component';
 
 
 @NgModule({
@@ -29,7 +31,10 @@ import { FormEntitiesComponent } from './entities/form-entities.component';
     TableComponent,
     FormInstrumentComponent,
     EntitiesComponent,
-    FormEntitiesComponent
+    FormEntitiesComponent,
+    UserComponent,
+    LevelComponent,
+    FormLevelComponent
   ],
   imports: [
     PAGES_ROUTES,

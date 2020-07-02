@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class EntitiesService {
 
   constructor(private asf: AngularFirestore) {
-    this.entitiesCollection = asf.collection<EntitiesInterfase> ('entities');
+    this.entitiesCollection = asf.collection<EntitiesInterfase> ('entities', ref => ref.orderBy("timestamp", "desc"));
     this.entities = this.entitiesCollection.valueChanges();
   }
 
@@ -19,6 +19,47 @@ export class EntitiesService {
   private entityDoc: AngularFirestoreDocument<EntitiesInterfase>;
   private entity: Observable<EntitiesInterfase>;
   public selectedEntity: EntitiesInterfase = {};
+
+  private entityAdd = {
+    name: '',
+    nit: '',
+    contact: '',
+    phone: '',
+    address: '',
+    country: '',
+    city: '',
+    description: '',
+    timestamp: new Date().getTime(),
+    enabled: false
+  };
+
+  addParameters(entity: EntitiesInterfase) {
+    this.entityAdd.name = entity.name;
+    this.entityAdd.nit = entity.nit;
+    this.entityAdd.contact = entity.contact;
+    this.entityAdd.phone = entity.phone;
+    this.entityAdd.address = entity.address;
+    this.entityAdd.country = entity.country;
+    this.entityAdd.city = entity.city;
+    this.entityAdd.description = entity.description;
+    this.entityAdd.enabled = entity.enabled;
+  }
+
+  /* allEntities(): Observable<EntitiesInterfase[]> {
+    return this.asf.collection(
+      'entities',
+      ref => ref.orderBy("timestamp", "desc")
+    )
+    .snapshotChanges()
+    .pipe(map(snaps => {
+      return snaps.map(snap => {
+        return {
+          id: snap.payload.doc.id,
+          ...snap.payload.doc.data()
+        } as EntitiesInterfase;
+      });
+    }));
+  } */
 
   getAll() {
     return this.entities = this.entitiesCollection.snapshotChanges()
@@ -46,8 +87,9 @@ export class EntitiesService {
 
   async add(entity: EntitiesInterfase) {
     try {
-       await new Promise( (resolve, reject) => {
-        this.entitiesCollection.add(entity)
+      await this.addParameters(entity);
+      await new Promise( (resolve, reject) => {
+        this.entitiesCollection.add(this.entityAdd)
         .then(entityData => resolve(entityData),
         err => reject(err));
       });
