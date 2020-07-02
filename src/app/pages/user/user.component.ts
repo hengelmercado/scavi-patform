@@ -117,7 +117,6 @@ export class UserComponent implements OnInit {
       id: this.eService.selectedEntity.id,
       name: this.eService.selectedEntity.name,
       lastName: this.eService.selectedEntity.lastName,
-      email: this.eService.selectedEntity.email,
       documentType: this.eService.selectedEntity.documentType,
       document: this.eService.selectedEntity.document,
       phone: this.eService.selectedEntity.phone,
@@ -132,7 +131,6 @@ export class UserComponent implements OnInit {
 
   onGetOne(id: string) {
     this.eService.getOne(id).subscribe( usr => {
-      console.log(usr);
       this.onPreUpdate(usr[0]);
       this.getActual();
     });
@@ -141,6 +139,7 @@ export class UserComponent implements OnInit {
   userLoged() {
     this.aService.isAuth().subscribe( user => {
       if (user) {
+        console.log('User', user);
         this.onGetOne(user.email);
         this.photoUrl = user.photoURL;
         this.userForm.patchValue({

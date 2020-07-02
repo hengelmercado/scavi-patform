@@ -1,0 +1,25 @@
+[debug] [2020-07-02T14:27:10.694Z] ----------------------------------------------------------------------
+[debug] [2020-07-02T14:27:10.696Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Hengel Mercado\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-07-02T14:27:10.696Z] CLI Version:   8.4.3
+[debug] [2020-07-02T14:27:10.696Z] Platform:      win32
+[debug] [2020-07-02T14:27:10.696Z] Node Version:  v12.18.1
+[debug] [2020-07-02T14:27:10.697Z] Time:          Thu Jul 02 2020 09:27:10 GMT-0500 (GMT-05:00)
+[debug] [2020-07-02T14:27:10.698Z] ----------------------------------------------------------------------
+[debug] [2020-07-02T14:27:10.698Z] 
+[debug] [2020-07-02T14:27:10.707Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-07-02T14:27:10.708Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Hengel Mercado\Documents\Angular\SCAVI\Nuevo proyecto\scavi
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+

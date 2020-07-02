@@ -29,7 +29,7 @@ export class AuthService {
 
   async loginEmailUser(email: string, password: string) {
     return new Promise((resolve, reject) => {
-      this.afsAuth.createUserWithEmailAndPassword(email, password)
+      this.afsAuth.signInWithEmailAndPassword(email, password)
       .then(userData => resolve(userData),
       err => reject(err));
     });

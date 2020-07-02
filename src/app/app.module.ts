@@ -12,7 +12,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule, AngularFireAuth} from '@angular/fire/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -33,6 +33,7 @@ import { RegisterComponent } from './login/register.component';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    AngularFirestoreModule.enablePersistence(),
     ReactiveFormsModule,
     FormsModule
   ],
